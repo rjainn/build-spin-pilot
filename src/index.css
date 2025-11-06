@@ -8,54 +8,54 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 220 40% 12%;
+    --background: 223 51% 14%;
     --foreground: 0 0% 100%;
 
-    --card: 220 35% 16%;
+    --card: 223 48% 18%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 220 35% 16%;
+    --popover: 223 48% 18%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 203 89% 53%;
+    --primary: 210 100% 60%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 30% 20%;
+    --secondary: 223 45% 22%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 25% 25%;
-    --muted-foreground: 220 15% 65%;
+    --muted: 223 40% 25%;
+    --muted-foreground: 0 0% 100%;
 
-    --accent: 203 89% 53%;
+    --accent: 210 100% 60%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 25% 25%;
-    --input: 220 25% 25%;
-    --ring: 203 89% 53%;
+    --border: 223 40% 25%;
+    --input: 223 40% 25%;
+    --ring: 210 100% 60%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
     
     /* Custom design tokens */
-    --navy-deep: 220 40% 12%;
-    --navy-medium: 220 35% 16%;
-    --navy-light: 220 30% 20%;
-    --blue-bright: 203 89% 53%;
-    --blue-glow: 203 89% 65%;
+    --navy-deep: 223 51% 14%;
+    --navy-medium: 223 48% 18%;
+    --navy-light: 223 45% 22%;
+    --blue-accent: 210 100% 60%;
+    --blue-glow: 210 100% 70%;
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(220, 40%, 12%), hsl(220, 35%, 18%));
-    --gradient-accent: linear-gradient(135deg, hsl(203, 89%, 53%), hsl(203, 89%, 65%));
+    --gradient-primary: linear-gradient(135deg, hsl(223, 51%, 14%), hsl(223, 48%, 18%));
+    --gradient-accent: linear-gradient(135deg, hsl(210, 100%, 60%), hsl(210, 100%, 70%));
     
     /* Animations */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
     
     /* Shadows */
-    --shadow-glow: 0 0 40px hsl(203 89% 53% / 0.3);
-    --shadow-card: 0 10px 40px hsl(220 40% 8% / 0.5);
+    --shadow-glow: 0 0 30px hsl(210 100% 60% / 0.15);
+    --shadow-card: 0 4px 20px hsl(223 51% 8% / 0.4);
 
     --sidebar-background: 0 0% 98%;
 
@@ -75,7 +75,7 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 220 40% 12%;
+    --background: 223 51% 14%;
     --foreground: 0 0% 100%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -106,14 +106,10 @@ All colors MUST be HSL.
 
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(135deg, hsl(203, 89%, 53%), hsl(203, 89%, 65%));
+    background: linear-gradient(135deg, hsl(210, 100%, 60%), hsl(210, 100%, 70%));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-  }
-  
-  .pulse-slow {
-    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
   
   @keyframes float {
@@ -121,12 +117,12 @@ All colors MUST be HSL.
       transform: translateY(0px);
     }
     50% {
-      transform: translateY(-20px);
+      transform: translateY(-15px);
     }
   }
   
   .animate-float {
-    animation: float 6s ease-in-out infinite;
+    animation: float 8s ease-in-out infinite;
   }
   
   @keyframes wave {
@@ -134,11 +130,11 @@ All colors MUST be HSL.
       transform: translateX(-50%) translateY(0);
     }
     50% {
-      transform: translateX(-50%) translateY(-30px);
+      transform: translateX(-50%) translateY(-20px);
     }
   }
   
   .animate-wave {
-    animation: wave 8s ease-in-out infinite;
+    animation: wave 10s ease-in-out infinite;
   }
 }

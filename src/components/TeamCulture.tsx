@@ -20,41 +20,41 @@ const TeamCulture = () => {
   ];
 
   return (
-    <section className="relative py-32 px-6">
+    <section className="relative py-24 px-6">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-20 animate-fade-in">
-          <h2 className="text-5xl md:text-6xl font-bold uppercase mb-6">
-            Elite <span className="text-gradient">Team Culture</span>
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="text-3xl md:text-5xl font-light mb-4">
+            Elite <span className="font-normal text-gradient">Team Culture</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base text-foreground/70 max-w-3xl mx-auto font-light">
             We attract world-class builders who thrive on ownership, autonomy, and the opportunity to shape entire companies
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6">
           {principles.map((principle, index) => {
             const Icon = principle.icon;
             return (
               <div
                 key={index}
-                className="bg-gradient-to-br from-card/50 to-card/30 backdrop-blur-sm border border-border/50 rounded-2xl p-10 text-center hover:border-accent/50 transition-all duration-300 hover:scale-105 animate-fade-in"
+                className="bg-card/20 backdrop-blur-sm border border-border/20 rounded-lg p-6 text-center hover:border-accent/30 transition-all duration-300 animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="w-20 h-20 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6">
-                  <Icon className="w-10 h-10 text-accent" />
+                <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
+                  <Icon className="w-6 h-6 text-accent/90" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-2xl font-bold mb-4 uppercase">{principle.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{principle.description}</p>
+                <h3 className="text-lg font-normal mb-3">{principle.title}</h3>
+                <p className="text-foreground/70 text-sm leading-relaxed font-light">{principle.description}</p>
               </div>
             );
           })}
         </div>
 
-        <div className="mt-20 bg-gradient-to-r from-accent/10 via-accent/5 to-accent/10 border border-accent/20 rounded-3xl p-12 text-center">
-          <p className="text-2xl font-semibold mb-4">
+        <div className="mt-12 bg-gradient-to-r from-accent/5 via-accent/10 to-accent/5 border border-accent/20 rounded-lg p-8 text-center">
+          <p className="text-lg font-light mb-2">
             Gain exposure to multiple products being built simultaneously
           </p>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-sm text-foreground/70 max-w-3xl mx-auto font-light">
             Unlike traditional startups, studio members experience diverse challenges, technologies, and markets — accelerating their growth and expanding their capabilities exponentially
           </p>
         </div>

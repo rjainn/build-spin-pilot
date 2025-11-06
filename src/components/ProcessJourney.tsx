@@ -42,24 +42,24 @@ const ProcessJourney = () => {
   ];
 
   return (
-    <section className="relative py-32 px-6">
+    <section className="relative py-24 px-6">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-20 animate-fade-in">
-          <h2 className="text-5xl md:text-6xl font-bold uppercase mb-6">
-            Our <span className="text-gradient">Process</span>
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="text-3xl md:text-5xl font-light mb-4">
+            Our <span className="font-normal text-gradient">Process</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base text-foreground/70 max-w-2xl mx-auto font-light">
             From concept to capital-ready company in a systematic, repeatable framework
           </p>
         </div>
 
         {/* Process Timeline */}
         <div className="relative">
-          {/* Diagonal connecting line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent/50 via-accent to-accent/50 -translate-x-1/2 hidden md:block"></div>
+          {/* Subtle connecting line */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-foreground/10 to-transparent -translate-x-1/2 hidden md:block"></div>
 
           {/* Stages */}
-          <div className="space-y-24">
+          <div className="space-y-16">
             {stages.map((stage, index) => {
               const Icon = stage.icon;
               const isLeft = stage.position === "left";
@@ -74,18 +74,18 @@ const ProcessJourney = () => {
                 >
                   {/* Content */}
                   <div className={`flex-1 ${isLeft ? "md:text-right" : ""}`}>
-                    <div className={`bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-8 hover:border-accent/50 transition-all duration-300 hover:shadow-glow ${
+                    <div className={`bg-card/30 backdrop-blur-sm border border-border/30 rounded-lg p-6 hover:border-accent/30 transition-all duration-300 ${
                       isLeft ? "animate-fade-in-right" : "animate-fade-in-left"
                     }`}>
-                      <h3 className="text-2xl font-bold mb-2 uppercase">
+                      <h3 className="text-xl font-normal mb-1">
                         {stage.title}
                       </h3>
                       {stage.subtitle && (
-                        <p className="text-accent font-semibold mb-3">
+                        <p className="text-accent/90 text-sm mb-2 font-light">
                           {stage.subtitle}
                         </p>
                       )}
-                      <p className="text-muted-foreground leading-relaxed">
+                      <p className="text-foreground/70 text-sm leading-relaxed font-light">
                         {stage.description}
                       </p>
                     </div>
@@ -93,8 +93,8 @@ const ProcessJourney = () => {
 
                   {/* Icon */}
                   <div className="relative flex-shrink-0">
-                    <div className="w-20 h-20 rounded-full bg-card border-4 border-accent/50 flex items-center justify-center shadow-glow hover:scale-110 transition-transform duration-300">
-                      <Icon className="w-10 h-10 text-accent" />
+                    <div className="w-14 h-14 rounded-full bg-card/50 border border-accent/30 flex items-center justify-center hover:scale-105 transition-transform duration-300">
+                      <Icon className="w-6 h-6 text-accent/90" strokeWidth={1.5} />
                     </div>
                   </div>
 
