@@ -2,49 +2,18 @@ import { Lightbulb, Search, Users, Calendar, CheckCircle2, TrendingUp } from "lu
 
 const ProcessJourney = () => {
   const stages = [
-    {
-      icon: Lightbulb,
-      title: "Idea",
-      description: "We originate product opportunities through our industry advisor network, proprietary data ingestion, and formal partnerships with external organizations",
-      position: "left"
-    },
-    {
-      icon: Search,
-      title: "Research Validation",
-      description: "Deep market analysis and problem validation across high-value industries",
-      position: "right"
-    },
-    {
-      icon: Users,
-      title: "Team Assignment",
-      description: "Elite engineers, designers, and strategists assembled for optimal execution",
-      position: "left"
-    },
-    {
-      icon: Calendar,
-      title: "MVP Build Phase",
-      subtitle: "(4 Weeks)",
-      description: "Rapid development sprints transforming concepts into production-ready products",
-      position: "right"
-    },
-    {
-      icon: CheckCircle2,
-      title: "Evaluation",
-      description: "Rigorous testing in real-world environments to validate market fit and traction",
-      position: "left"
-    },
-    {
-      icon: TrendingUp,
-      title: "Spin Out & Capital Rise",
-      description: "Successful projects become independent portfolio companies prepared for scale",
-      position: "right"
-    }
+    { icon: Lightbulb, title: "Idea", y: 85 },
+    { icon: Search, title: "Research Validation", y: 70 },
+    { icon: Users, title: "Team Assignment", y: 55 },
+    { icon: Calendar, title: "MVP Build (4 Weeks)", y: 40 },
+    { icon: CheckCircle2, title: "Evaluation", y: 25 },
+    { icon: TrendingUp, title: "Spin Out & Capital Rise", y: 10 }
   ];
 
   return (
-    <section className="relative py-24 px-6">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16 animate-fade-in">
+    <section className="relative py-32 px-6 bg-white/5">
+      <div className="container mx-auto max-w-7xl">
+        <div className="text-center mb-20 animate-fade-in">
           <h2 className="text-3xl md:text-5xl font-light mb-4">
             Our <span className="font-normal text-gradient">Process</span>
           </h2>
@@ -53,56 +22,89 @@ const ProcessJourney = () => {
           </p>
         </div>
 
-        {/* Process Timeline */}
-        <div className="relative">
-          {/* Subtle connecting line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-foreground/10 to-transparent -translate-x-1/2 hidden md:block"></div>
+        {/* Process Graph */}
+        <div className="relative h-[600px] max-w-5xl mx-auto">
+          {/* Y-axis label */}
+          <div className="absolute -left-8 top-1/2 -translate-y-1/2 -rotate-90 text-xs text-foreground/50 font-light whitespace-nowrap">
+            Value & Maturity
+          </div>
+          
+          {/* X-axis label */}
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-8 text-xs text-foreground/50 font-light">
+            Time
+          </div>
 
-          {/* Stages */}
-          <div className="space-y-16">
+          {/* Graph container */}
+          <div className="relative w-full h-full border-l border-b border-foreground/10">
+            {/* Diagonal progression line */}
+            <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="lineGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="hsl(210, 100%, 60%)" stopOpacity="0.3" />
+                  <stop offset="100%" stopColor="hsl(210, 100%, 60%)" stopOpacity="0.8" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M 5 95 L 95 5"
+                stroke="url(#lineGradient)"
+                strokeWidth="2"
+                fill="none"
+                vectorEffect="non-scaling-stroke"
+                className="animate-fade-in"
+              />
+            </svg>
+
+            {/* Stage markers */}
             {stages.map((stage, index) => {
               const Icon = stage.icon;
-              const isLeft = stage.position === "left";
+              const x = (index / (stages.length - 1)) * 90 + 5; // Distribute along x-axis
               
               return (
                 <div
                   key={index}
-                  className={`flex flex-col md:flex-row items-center gap-8 ${
-                    isLeft ? "md:flex-row-reverse" : ""
-                  } animate-fade-in`}
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  className="absolute group animate-fade-in"
+                  style={{
+                    left: `${x}%`,
+                    top: `${stage.y}%`,
+                    animationDelay: `${index * 0.15}s`
+                  }}
                 >
-                  {/* Content */}
-                  <div className={`flex-1 ${isLeft ? "md:text-right" : ""}`}>
-                    <div className={`bg-card/30 backdrop-blur-sm border border-border/30 rounded-lg p-6 hover:border-accent/30 transition-all duration-300 ${
-                      isLeft ? "animate-fade-in-right" : "animate-fade-in-left"
-                    }`}>
-                      <h3 className="text-xl font-normal mb-1">
-                        {stage.title}
-                      </h3>
-                      {stage.subtitle && (
-                        <p className="text-accent/90 text-sm mb-2 font-light">
-                          {stage.subtitle}
-                        </p>
-                      )}
-                      <p className="text-foreground/70 text-sm leading-relaxed font-light">
-                        {stage.description}
-                      </p>
+                  {/* Connection dot */}
+                  <div className="absolute -translate-x-1/2 -translate-y-1/2">
+                    <div className="w-3 h-3 rounded-full bg-accent border-2 border-background shadow-lg"></div>
+                  </div>
+                  
+                  {/* Stage card */}
+                  <div className="absolute left-0 -translate-x-1/2 translate-y-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="bg-card/95 backdrop-blur-sm border border-border/30 rounded-lg p-4 shadow-xl min-w-[180px]">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
+                          <Icon className="w-4 h-4 text-accent" strokeWidth={1.5} />
+                        </div>
+                        <h3 className="text-sm font-normal">{stage.title}</h3>
+                      </div>
                     </div>
                   </div>
-
-                  {/* Icon */}
-                  <div className="relative flex-shrink-0">
-                    <div className="w-14 h-14 rounded-full bg-card/50 border border-accent/30 flex items-center justify-center hover:scale-105 transition-transform duration-300">
-                      <Icon className="w-6 h-6 text-accent/90" strokeWidth={1.5} />
+                  
+                  {/* Always visible label */}
+                  <div className="absolute left-0 -translate-x-1/2 translate-y-8 text-center">
+                    <div className="bg-background/80 backdrop-blur-sm border border-border/20 rounded px-3 py-1 min-w-[140px]">
+                      <p className="text-xs text-foreground/80 font-light whitespace-nowrap">{stage.title}</p>
                     </div>
                   </div>
-
-                  {/* Spacer for alignment */}
-                  <div className="flex-1 hidden md:block"></div>
                 </div>
               );
             })}
+          </div>
+        </div>
+
+        {/* Description box */}
+        <div className="mt-16 max-w-3xl mx-auto">
+          <div className="bg-card/20 border border-border/20 rounded-lg p-6 text-center">
+            <p className="text-sm text-foreground/70 font-light leading-relaxed">
+              We originate product opportunities through our industry advisor network, proprietary data ingestion, 
+              and formal partnerships with external organizations. Each stage builds momentum toward a capital-ready spin-out.
+            </p>
           </div>
         </div>
       </div>

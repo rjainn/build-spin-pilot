@@ -20,7 +20,7 @@ const AdvisoryNetwork = () => {
   ];
 
   return (
-    <section className="relative py-24 px-6 bg-card/10">
+    <section className="relative py-32 px-6 bg-white/5">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-5xl font-light mb-4">
@@ -37,23 +37,23 @@ const AdvisoryNetwork = () => {
             return (
               <div
                 key={index}
-                className="group bg-card/20 backdrop-blur-sm border border-border/20 rounded-lg p-6 hover:border-accent/30 transition-all duration-300 animate-fade-in"
+                className="group bg-white/5 backdrop-blur-sm border border-foreground/10 rounded-lg p-6 hover:border-accent/30 transition-all duration-300 animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/15 transition-colors duration-300">
-                  <Icon className="w-6 h-6 text-accent/90" strokeWidth={1.5} />
+                <div className="w-12 h-12 rounded-full bg-foreground/5 flex items-center justify-center mb-4 group-hover:bg-accent/10 transition-colors duration-300">
+                  <Icon className="w-6 h-6 text-foreground/70 group-hover:text-accent" strokeWidth={1.5} />
                 </div>
                 <h3 className="text-lg font-normal mb-3">{item.title}</h3>
-                <p className="text-foreground/70 text-sm leading-relaxed font-light">{item.description}</p>
+                <p className="text-foreground/60 text-sm leading-relaxed font-light">{item.description}</p>
               </div>
             );
           })}
         </div>
 
         <div className="mt-12 text-center">
-          <div className="inline-block bg-accent/5 border border-accent/20 rounded-lg px-6 py-4 max-w-3xl">
-            <p className="text-sm text-foreground/80 leading-relaxed font-light">
-              Many of our advisors work at firms that would become <span className="text-accent/90 font-normal">paying customers</span> — creating built-in revenue pipelines for our ventures from day one.
+          <div className="inline-block bg-white/5 border border-foreground/10 rounded-lg px-6 py-4 max-w-3xl">
+            <p className="text-sm text-foreground/70 leading-relaxed font-light">
+              Many of our advisors work at firms that would become <span className="text-accent font-normal">paying customers</span> — creating built-in revenue pipelines for our ventures from day one.
             </p>
           </div>
         </div>
