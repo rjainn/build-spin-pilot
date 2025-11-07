@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: '/build-spin-pilot/', // Change this to '/' when using custom domain
+  base: mode === 'production' ? '/build-spin-pilot/' : '/',
   server: {
     host: "::",
     port: 8080,
