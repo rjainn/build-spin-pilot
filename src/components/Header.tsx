@@ -12,7 +12,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity -ml-2">
             <img 
-              src={`${import.meta.env.BASE_URL}simple-logo-black-white.png`}
+              src="/simple-logo-black-white.png"
               alt="R&D Venture Studio" 
               className="h-12 w-auto"
             />

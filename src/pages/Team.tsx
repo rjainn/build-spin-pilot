@@ -10,7 +10,7 @@ const Team = () => {
       bio: "Experienced leader in venture building and strategic partnerships",
       linkedin: "https://www.linkedin.com/in/dylan-gerstenhaber-a2788324a/",
       email: "dylan@rdventure.studio",
-      image: `${import.meta.env.BASE_URL}dylan-gerstenhaber.png`
+      image: "/dylan-gerstenhaber.png"
     },
     {
       name: "Raj Jain",
@@ -18,7 +18,7 @@ const Team = () => {
       bio: "Technology entrepreneur with expertise in AI and software development",
       linkedin: "https://www.linkedin.com/in/raj-jain-1d/",
       email: "raj@rdventure.studio",
-      image: `${import.meta.env.BASE_URL}raj-jain.png`
+      image: "/raj-jain.png"
     },
     {
       name: "Luca Cuffe",
@@ -26,7 +26,7 @@ const Team = () => {
       bio: "Experienced in investment banking, venture capital, and financial markets with deep expertise in capital formation",
       linkedin: "https://www.linkedin.com/in/luca-cuffe/",
       email: "luca@rdventure.studio",
-      image: `${import.meta.env.BASE_URL}luca-cuffe.png`
+      image: "/luca-cuffe.png"
     }
   ];
 
