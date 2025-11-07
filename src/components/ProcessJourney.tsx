@@ -2,110 +2,119 @@ import { Lightbulb, Search, Users, Calendar, CheckCircle2, TrendingUp } from "lu
 
 const ProcessJourney = () => {
   const stages = [
-    { icon: Lightbulb, title: "Idea", y: 85 },
-    { icon: Search, title: "Research Validation", y: 70 },
-    { icon: Users, title: "Team Assignment", y: 55 },
-    { icon: Calendar, title: "MVP Build (4 Weeks)", y: 40 },
-    { icon: CheckCircle2, title: "Evaluation", y: 25 },
-    { icon: TrendingUp, title: "Spin Out & Capital Rise", y: 10 }
+    { icon: Lightbulb, title: "Idea." },
+    { icon: Search, title: "Research Validation." },
+    { icon: Users, title: "Team Assignment." },
+    { icon: Calendar, title: "MVP Build Phase." },
+    { icon: CheckCircle2, title: "Evaluation." },
+    { icon: TrendingUp, title: "Spin Out &\nCapital Rise." }
   ];
 
   return (
-    <section className="relative py-32 px-6 bg-white/5">
+    <section className="relative py-20 px-6 bg-gray-50">
       <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-20 animate-fade-in">
-          <h2 className="text-3xl md:text-5xl font-light mb-4">
-            Our <span className="font-normal text-gradient">Process</span>
+        {/* Header */}
+        <div className="text-left mb-12 animate-fade-in">
+          <p className="text-lg text-[#13224C] mb-4 uppercase-header uppercase font-bold">HOW IT WORKS</p>
+          <h2 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-gray-900">
+            Venture Launch Process:<br />
+            From Idea To Spin-Out.
           </h2>
-          <p className="text-base text-foreground/70 max-w-2xl mx-auto font-light">
-            From concept to capital-ready company in a systematic, repeatable framework
+          <p className="text-lg text-gray-700 max-w-2xl font-semibold leading-relaxed">
+            R&D Venture Studio functions as a founder factory - where capable engineers collaboratively prototype, validate, and launch multiple software businesses simultaneously.
           </p>
         </div>
 
-        {/* Process Graph */}
-        <div className="relative h-[600px] max-w-5xl mx-auto">
-          {/* Y-axis label */}
-          <div className="absolute -left-8 top-1/2 -translate-y-1/2 -rotate-90 text-xs text-foreground/50 font-light whitespace-nowrap">
-            Value & Maturity
-          </div>
-          
-          {/* X-axis label */}
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-8 text-xs text-foreground/50 font-light">
-            Time
-          </div>
+        {/* Process Diagram */}
+        <div className="relative h-[400px] max-w-6xl mx-auto">
 
-          {/* Graph container */}
-          <div className="relative w-full h-full border-l border-b border-foreground/10">
-            {/* Diagonal progression line */}
-            <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="lineGradient" x1="0%" y1="100%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="hsl(210, 100%, 60%)" stopOpacity="0.3" />
-                  <stop offset="100%" stopColor="hsl(210, 100%, 60%)" stopOpacity="0.8" />
-                </linearGradient>
-              </defs>
-              <path
-                d="M 5 95 L 95 5"
-                stroke="url(#lineGradient)"
-                strokeWidth="2"
-                fill="none"
-                vectorEffect="non-scaling-stroke"
-                className="animate-fade-in"
-              />
-            </svg>
-
-            {/* Stage markers */}
+          {/* Wavy diagonal line with stages */}
+          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <linearGradient id="processLineGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="hsl(224, 60%, 19%)" stopOpacity="0.5" />
+                <stop offset="50%" stopColor="hsl(224, 80%, 55%)" stopOpacity="0.7" />
+                <stop offset="100%" stopColor="hsl(51, 92%, 78%)" stopOpacity="0.6" />
+              </linearGradient>
+            </defs>
+            
+            {/* Sigmoidal curve path */}
+            <path
+              d="M 100 360 Q 200 350, 300 320 Q 400 280, 500 220 Q 600 160, 700 120 Q 800 90, 900 70 Q 1000 50, 1100 40"
+              stroke="url(#processLineGradient)"
+              strokeWidth="3"
+              fill="none"
+              className="animate-fade-in"
+            />
+            
+            {/* Stage positions along the wavy path */}
             {stages.map((stage, index) => {
-              const Icon = stage.icon;
-              const x = (index / (stages.length - 1)) * 90 + 5; // Distribute along x-axis
+              // Calculate positions along the sigmoidal curve
+              const positions = [
+                { x: 100, y: 360 },
+                { x: 300, y: 320 },
+                { x: 500, y: 220 },
+                { x: 700, y: 120 },
+                { x: 900, y: 70 },
+                { x: 1100, y: 40 }
+              ];
+              const pos = positions[index];
               
               return (
-                <div
-                  key={index}
-                  className="absolute group animate-fade-in"
-                  style={{
-                    left: `${x}%`,
-                    top: `${stage.y}%`,
-                    animationDelay: `${index * 0.15}s`
-                  }}
-                >
-                  {/* Connection dot */}
-                  <div className="absolute -translate-x-1/2 -translate-y-1/2">
-                    <div className="w-3 h-3 rounded-full bg-accent border-2 border-background shadow-lg"></div>
-                  </div>
-                  
-                  {/* Stage card */}
-                  <div className="absolute left-0 -translate-x-1/2 translate-y-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="bg-card/95 backdrop-blur-sm border border-border/30 rounded-lg p-4 shadow-xl min-w-[180px]">
-                      <div className="flex items-center gap-3 mb-2">
-                        <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
-                          <Icon className="w-4 h-4 text-accent" strokeWidth={1.5} />
-                        </div>
-                        <h3 className="text-sm font-normal">{stage.title}</h3>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Always visible label */}
-                  <div className="absolute left-0 -translate-x-1/2 translate-y-8 text-center">
-                    <div className="bg-background/80 backdrop-blur-sm border border-border/20 rounded px-3 py-1 min-w-[140px]">
-                      <p className="text-xs text-foreground/80 font-light whitespace-nowrap">{stage.title}</p>
-                    </div>
-                  </div>
-                </div>
+                <g key={index} className="animate-fade-in" style={{ animationDelay: `${index * 0.15}s` }}>
+                  {/* White circle background */}
+                  <circle
+                    cx={pos.x}
+                    cy={pos.y}
+                    r="35"
+                    fill="white"
+                    className="drop-shadow-lg"
+                  />
+                </g>
               );
             })}
-          </div>
-        </div>
+          </svg>
 
-        {/* Description box */}
-        <div className="mt-16 max-w-3xl mx-auto">
-          <div className="bg-card/20 border border-border/20 rounded-lg p-6 text-center">
-            <p className="text-sm text-foreground/70 font-light leading-relaxed">
-              We originate product opportunities through our industry advisor network, proprietary data ingestion, 
-              and formal partnerships with external organizations. Each stage builds momentum toward a capital-ready spin-out.
-            </p>
-          </div>
+          {/* Stage markers with icons and labels (HTML positioned) */}
+          {stages.map((stage, index) => {
+            const Icon = stage.icon;
+            const positions = [
+              { x: 100, y: 360 },
+              { x: 300, y: 320 },
+              { x: 500, y: 220 },
+              { x: 700, y: 120 },
+              { x: 900, y: 70 },
+              { x: 1100, y: 40 }
+            ];
+            const pos = positions[index];
+            const xPercent = (pos.x / 1200) * 100;
+            const yPercent = (pos.y / 400) * 100;
+            
+            return (
+              <div
+                key={index}
+                className="absolute animate-fade-in"
+                style={{
+                  left: `${xPercent}%`,
+                  top: `${yPercent}%`,
+                  transform: 'translate(-50%, -50%)',
+                  animationDelay: `${index * 0.15}s`
+                }}
+              >
+                {/* Icon in white circle */}
+                <div className="w-[70px] h-[70px] rounded-full bg-white flex items-center justify-center shadow-lg">
+                  <Icon className="w-8 h-8 text-gray-800" strokeWidth={1.5} />
+                </div>
+                
+                {/* Label below */}
+                <div className="absolute top-[80px] left-1/2 -translate-x-1/2 text-center min-w-[160px]">
+                  <p className="text-base text-gray-900 font-semibold whitespace-pre-line leading-tight">
+                    {stage.title}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
