@@ -1,73 +1,64 @@
-# Welcome to your Lovable project
+# R&D Venture Studio
 
-## Project info
+**Build. Validate. Spin-Out. Repeat.**
 
-**URL**: https://lovable.dev/projects/e035c725-1cf5-4b0a-bb6b-2f391ed2ec1b
+The official website for R&D Venture Studio - an innovative founder factory building bold AI-native products from zero to MVP.
 
-## How can I edit this code?
+## 🌐 Live Site
 
-There are several ways of editing your application.
+**Website**: [rdventurestudios.com](https://rdventurestudios.com)
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/e035c725-1cf5-4b0a-bb6b-2f391ed2ec1b) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
+## 🚀 Tech Stack
 
 This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Vite** - Fast build tool and dev server
+- **TypeScript** - Type-safe JavaScript
+- **React** - UI framework
+- **shadcn/ui** - Beautiful UI components
+- **Tailwind CSS** - Utility-first CSS framework
 
-## How can I deploy this project?
+## 💻 Local Development
 
-Simply open [Lovable](https://lovable.dev/projects/e035c725-1cf5-4b0a-bb6b-2f391ed2ec1b) and click on Share -> Publish.
+### Prerequisites
 
-## Can I connect a custom domain to my Lovable project?
+- Node.js (v18 or higher)
+- npm or yarn
 
-Yes, you can!
+### Getting Started
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```sh
+# Clone the repository
+git clone https://github.com/rjainn/build-spin-pilot.git
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+# Navigate to the project directory
+cd build-spin-pilot
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+```
+
+The site will be available at `http://localhost:8080`
+
+## 📦 Build for Production
+
+```sh
+# Build the project
+npm run build
+
+# Preview the production build locally
+npm run preview
+```
+
+## 🚢 Deployment
+
+This site is deployed to GitHub Pages automatically via GitHub Actions whenever changes are pushed to the `main` branch.
+
+The deployment workflow is defined in `.github/workflows/deploy.yml`
+
+## 📝 License
+
+© 2025 R&D Venture Studio. All rights reserved.
